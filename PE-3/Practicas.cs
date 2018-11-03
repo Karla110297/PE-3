@@ -134,14 +134,14 @@ namespace PE_3
 
 
             Console.WriteLine("¿Cuantos discos quieres en tu torre?");
-            int torres = Int32.Parse(Console.ReadLine());
+            int discos = Int32.Parse(Console.ReadLine());//numero de discos
 
-            for(int i = torres; i > 0; i--)
+            for(int i = discos; i > 0; i--)//ingresa datos en pila origen
             {
                 origen.Push(i);
             }
 
-            hanoi(torres, origen, auxiliar, destino);
+            hanoi(discos, origen, auxiliar, destino);//manda llamar a la funcion para cambiar posiciones de torre de hanoi
             imprimirHanoi(origen, auxiliar, destino);
 
             Console.ReadKey();
@@ -308,11 +308,11 @@ namespace PE_3
             imprimirHanoi(o, a, d);
 
 
-            if (n == 1)
+            if (n == 1)// si solo tiene un disco en la torre lo manda directamente a la pila destino
             {
                 d.Push(o.Pop());
             }
-            else
+            else// si no se debe seguir la siguiente formula
             {
                 hanoi(n - 1, o, d, a);
 
@@ -330,27 +330,27 @@ namespace PE_3
             imprimirHanoi(o, a, d);
         }
 
-        static void imprimirHanoi(Stack<int> o, Stack<int> a, Stack<int> d)
+        static void imprimirHanoi(Stack<int> o, Stack<int> a, Stack<int> d)// imprime los numeros que tienen las pilas
         {
             Console.WriteLine("presione una tecla");
             Console.ReadKey();
             Console.Clear();
 
             Console.Write("origen:\n ");
-            foreach (int num in o)
+            foreach (int num in o)//elementos en origen
             {
                 Console.Write(num + "\n ");
             }
 
             Console.WriteLine();
-            Console.Write("auxiliar: \n");
+            Console.Write("auxiliar: \n");//elementos en pila auxiliar
             foreach (int num in a)
             {
                 Console.Write(num + "\n ");
             }
 
             Console.WriteLine();
-            Console.Write("destino:\n ");
+            Console.Write("destino:\n ");//elementos en pila destino
             foreach (int num in d)
             {
                 Console.Write(num + "\n ");
